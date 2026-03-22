@@ -40,7 +40,7 @@ class ProductControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(newProduct)))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.id").value("1"));
+                .andExpect(jsonPath("$.productId").value("1"));
     }
 
     @Test
@@ -50,6 +50,6 @@ class ProductControllerTest {
         mockMvc.perform(post("/products")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(invalidProduct)))
-                .andExpect(status().isBadRequest()); 
+                .andExpect(status().isBadRequest());
     }
 }
